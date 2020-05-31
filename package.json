@@ -1,0 +1,51 @@
+{
+  "name": "sacafi-backend",
+  "version": "1.0.0",
+  "description": "Sacafi Backend",
+  "main": "app.js",
+  "scripts": {
+    "mongo:start": "docker run --name realworld-mongo -p 27017:27017 mongo & sleep 5",
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "test": "newman run ./tests/api-tests.postman.json -e ./tests/env-api-tests.postman.json",
+    "stop": "lsof -ti :3000 | xargs kill",
+    "mongo:stop": "docker stop realworld-mongo && docker rm realworld-mongo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gothinkster/productionready-node-api.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.0",
+    "cors": "2.7.1",
+    "ejs": "2.4.1",
+    "errorhandler": "1.4.3",
+    "express": "4.13.4",
+    "express-jwt": "3.3.0",
+    "express-session": "1.13.0",
+    "jsonwebtoken": "7.1.9",
+    "method-override": "2.3.5",
+    "methods": "1.1.2",
+    "mongoose": "4.4.10",
+    "mongoose-unique-validator": "1.0.2",
+    "morgan": "1.9.1",
+    "osm-dude": "^1.0.5",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
+    "request": "2.69.0",
+    "slug": "0.9.1",
+    "underscore": "1.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "newman": "^3.8.2",
+    "nodemon": "^1.11.0",
+    "prettier": "^1.18.2"
+  }
+}
