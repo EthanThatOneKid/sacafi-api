@@ -1,4 +1,4 @@
-var http = require("http"),
+const http = require("http"),
   path = require("path"),
   methods = require("methods"),
   express = require("express"),
