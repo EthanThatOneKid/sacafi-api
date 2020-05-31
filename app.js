@@ -9,7 +9,8 @@ const http = require("http"),
   errorhandler = require("errorhandler"),
   mongoose = require("mongoose");
 
-var isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env.NODE_ENV === "production";
+const isDeployed = process.env.NODE_ENV === "deployed";
 
 // Create global app object
 var app = express();
@@ -37,7 +38,7 @@ if (!isProduction) {
   app.use(errorhandler());
 }
 
-if (isProduction) {
+if (isProduction || isDeployed) {
   mongoose.connect(process.env.MONGODB_URI);
 } else {
   mongoose.connect("mongodb://localhost/conduit");
